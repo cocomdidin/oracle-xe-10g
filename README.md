@@ -1,4 +1,4 @@
-dragonbest520/oracle-xe-10g
+cocomdidin/oracle-xe-10g
 ====================
 
 (based on the work done by Wei-Ming Wu <wnameless@gmail.com> on
@@ -11,12 +11,12 @@ Oracle Express Edition 10g Release 2 (10.2.0.1) 32-bit on Debian 7.0 Wheezy.
 
 ### Installation
 ```
-docker pull dragonbest520/oracle-xe-10g
+docker pull cocomdidin/oracle-xe-10g
 ```
 
 Run with 22, 1521, 8080 ports opened and volume mounted:
 ```
-docker run --name oracle10g -d -p 49160:22 -p 1521:1521 -p 49162:8080  --mount source=oracle_xe_10g_vol,target=/usr/lib/oracle -e ORACLE_ALLOW_REMOTE=true   --restart=always dragonbest520/oracle-xe-10g
+docker run --name oracle10g -d -p 49160:22 -p 1521:1521 -p 49162:8080  --mount source=oracle_xe_10g_vol,target=/usr/lib/oracle -e ORACLE_ALLOW_REMOTE=true   --restart=always cocomdidin/oracle-xe-10g
 ```
 
 The volume path on server is /var/lib/docker/volumes/oracle_xe_10g_vol
