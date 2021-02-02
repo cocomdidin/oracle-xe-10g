@@ -1,6 +1,6 @@
 FROM debian:wheezy
 
-MAINTAINER db520 <dragonbest520@gmail.com>
+MAINTAINER db520 <udn.chomr@gmail.com>
 
 ENV ORACLE_HOME=/usr/lib/oracle/xe/app/oracle/product/10.2.0/server
 ENV LD_LIBRARY_PATH=$ORACLE_HOME/lib
