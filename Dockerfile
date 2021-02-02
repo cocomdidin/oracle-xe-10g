@@ -1,6 +1,6 @@
-FROM debian:wheezy
+FROM debian:jessie
 
-MAINTAINER db520 <udn.chomr@gmail.com, cocom.didin@yahoo.com>
+MAINTAINER db520 <udn.chomr@gmail.com>
 
 ENV ORACLE_HOME=/usr/lib/oracle/xe/app/oracle/product/10.2.0/server
 ENV LD_LIBRARY_PATH=$ORACLE_HOME/lib
@@ -14,11 +14,11 @@ ADD oracle-xe-universal_10.2.0.1-1.1_i386.debac /
 
 RUN dpkg --add-architecture i386 && \
     apt-get update && apt-get install -y \
-       bc:i386 \
-       libaio1:i386 \
-       libc6-i386 \
-       net-tools \
-       openssh-server && \
+        bc:i386 \
+        libaio1:i386 \
+        libc6-i386 \
+        net-tools \
+        openssh-server && \
     apt-get clean && \
     mkdir /var/run/sshd && \
     echo 'root:admin' | chpasswd && \
@@ -26,7 +26,7 @@ RUN dpkg --add-architecture i386 && \
     sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd && \
     echo "export VISIBLE=now" >> /etc/profile && \
     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && \
-    cat /oracle-xe-universal_10.2.0.1-1.1_i386.deba* > /oracle-xe-universal_10.2.0.1-1.1_i386.deb && \ 
+    cat /oracle-xe-universal_10.2.0.1-1.1_i386.deba* > /oracle-xe-universal_10.2.0.1-1.1_i386.deb && \
     dpkg -i /oracle-xe-universal_10.2.0.1-1.1_i386.deb && \
     rm /oracle-xe-universal_10.2.0.1-1.1_i386.deb* && \
     printf 8080\\n1521\\noracle\\noracle\\ny\\n | /etc/init.d/oracle-xe configure && \
