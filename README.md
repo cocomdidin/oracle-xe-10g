@@ -16,7 +16,7 @@ docker pull cocomdidin/oracle-xe-10g
 
 Run with 22, 1521, 8080 ports opened and volume mounted:
 ```
-docker run --name oracle10g -d -p 49160:22 -p 1521:1521 -p 49162:8080  --mount source=oracle_xe_10g_vol,target=/usr/lib/oracle -e ORACLE_ALLOW_REMOTE=true   --restart=always cocomdidin/oracle-xe-10g
+docker run --name oracle-xe-10g -d -p 49160:22 -p 1521:1521 -p 49162:8080  --mount source=oracle_xe_10g_vol,target=/usr/lib/oracle -e ORACLE_ALLOW_REMOTE=true   --restart=always cocomdidin/oracle-xe-10g:latest
 ```
 
 The volume path on server is /var/lib/docker/volumes/oracle_xe_10g_vol
